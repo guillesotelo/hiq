@@ -1,10 +1,9 @@
-import express from 'express'
-import { surroundWordOcurrences } from "../services/text"
-import { Request, Response } from 'express';
+const express = require('express')
+const { surroundWordOcurrences } = require("../services/text")
 const router = express.Router()
 
 //Make new conversion
-router.post('/surroundWordOcurrences', async (req: Request, res: Response, next) => {
+router.post('/processText', async (req, res, next) => {
     try {
         const { text } = req.body
         const processedText = surroundWordOcurrences(text)

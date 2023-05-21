@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name   : "bydanygarcia-api",
+    name   : "hiq-api",
     script : "./index.js"
   }]
 }

@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
 
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
       </Switch>
