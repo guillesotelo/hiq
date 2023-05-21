@@ -44,10 +44,12 @@ const Home: React.FC = (props: Props) => {
           <h4 className="home__converter-label" onClick={openFileLoader}>Choose file or drag it here</h4>
           : ''}
         <input type='file' id='file-loader' onChange={loadFile} style={{ height: 0 }} accept='.rtf,.txt,.md,.file' />
-        <div className="home__converter-text-wrapper">
-          <h3 className="home__converter-text-title">{filename}</h3>
-          <p className="home__converter-text">{text}</p>
-        </div>
+        {text ?
+          <div className="home__converter-text-wrapper">
+            <h3 className="home__converter-text-title">{filename}</h3>
+            <pre className="home__converter-text">{text}</pre>
+          </div>
+          : ''}
         {text && !generatedText ?
           <button className='home__converter-btn' onClick={convertText}>Convert</button>
           : ''}
@@ -56,7 +58,7 @@ const Home: React.FC = (props: Props) => {
         <div className="home__converter">
           <div className="home__converter-text-wrapper">
             <h3 className="home__converter-text-title">Converted</h3>
-            <p className="home__converter-text">{generatedText}</p>
+            <pre className="home__converter-text">{generatedText}</pre>
           </div>
         </div>
         : ''}

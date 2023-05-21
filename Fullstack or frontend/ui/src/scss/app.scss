@@ -41,6 +41,10 @@
     &-text {
       text-align: justify;
       margin: 0;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      word-wrap: break-word;
 
       &-title {
         font-size: 1.5vw;
