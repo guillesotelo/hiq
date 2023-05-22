@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
     "@types/node": "^16.18.31",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
@@ -46,7 +45,9 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.1",
     "@types/react-router-dom": "^5.3.3",
+    "babel-jest": "^29.5.0",
     "jest": "^27.5.1"
   }
 }

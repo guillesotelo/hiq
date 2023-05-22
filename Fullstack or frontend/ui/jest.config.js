@@ -1,4 +1,8 @@
 module.exports = {
+    transform: {
+        '^.+\\.jsx?$': 'babel-jest', // For transforming JavaScript and JSX files
+        '^.+\\.tsx?$': 'ts-jest', // For transforming TypeScript files
+    },
     testEnvironment: 'node',
     extensionsToTreatAsEsm: ['.ts'],
     moduleNameMapper: {
@@ -6,5 +10,13 @@ module.exports = {
         '\\.(gif|ttf|eot|svg)$': '<rootDir>/test/fileMock.js',
     },
     setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
-    testMatch: ['<rootDir>/src/**/*.test.(js|jsx|ts|tsx)'],
+    testMatch: ["**/*.test.mjs"],
+    globals: {
+        'ts-jest': {
+            tsconfig: '<rootDir>/test/tsconfig.json',
+        },
+    },
+    transformIgnorePatterns: [
+        "node_modules/(?!troublesome-dependency/.*)",
+    ],
 };
