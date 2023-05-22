@@ -8,6 +8,7 @@ function App() {
 
       <Switch>
         <Route exact path="/">
+          <img src="https://wallpapers.com/images/hd/high-resolution-wood-background-0b661janmvnfqo83.jpg" alt="Background Image" className="home__bg-image" />
           <Home />
         </Route>
       </Switch>

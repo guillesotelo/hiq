@@ -55,6 +55,10 @@ const Home: React.FC = (props: Props) => {
     setText('')
     setFilename('')
     setGeneratedText('')
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
   }
 
   return (
