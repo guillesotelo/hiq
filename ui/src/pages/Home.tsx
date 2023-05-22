@@ -1,5 +1,6 @@
 import React, { SyntheticEvent, useState } from 'react'
 import { processText } from '../services/text'
+import toast from 'react-hot-toast'
 
 type Props = {}
 
@@ -28,8 +29,13 @@ const Home: React.FC = (props: Props) => {
 
   const convertText = async () => {
     try {
+      if (!text || text.trim() === '') return toast.error('The text is empty')
       const response = await processText({ text })
-      if (response) setGeneratedText(response)
+      if (response) {
+        setGeneratedText(response)
+        toast.success('Text converted successfully')
+      }
+      else toast.error('An error occurred. Try again later')
     } catch (err) { console.error(err) }
   }
 
@@ -43,6 +49,12 @@ const Home: React.FC = (props: Props) => {
     setDragging(false)
     const files = e.dataTransfer.files
     readFile(files)
+  }
+
+  const resetConverter = () => {
+    setText('')
+    setFilename('')
+    setGeneratedText('')
   }
 
   return (
@@ -84,6 +96,7 @@ const Home: React.FC = (props: Props) => {
             <h3 className="home__converter-text-title">Converted</h3>
             <pre className="home__converter-text">{generatedText}</pre>
           </div>
+          <button className='home__converter-btn' onClick={resetConverter}>Reset</button>
         </div>
         : ''}
     </div>

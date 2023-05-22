@@ -6,7 +6,7 @@ const processText = async (data: { [key: string | number]: any }) => {
     try {
         const text = await axios.post(`${API_URL}/api/processText`, data)
         return text.data
-    } catch (err) { console.log(err) }
+    } catch (err) { console.error(err) }
 }
 
 export {
